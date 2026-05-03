@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">Elektriker Frankfurt</title>
+
+<script>
+// ============================================================
+//  ✏️  NUR HIER ÄNDERN — ALLES ANDERE BLEIBT GLEICH
+// ============================================================
+const FIRMA = {
+  name:        "Müller Elektro",           // Firmenname
+  tel:         "069 123 456 789",           // Telefonnummer
+  email:       "info@mueller-elektro.de",  // E-Mail
+  adresse:     "Musterstraße 42, 60313 Frankfurt am Main",
+  seit:        "1998",                      // Gründungsjahr
+  stadtteile:  "Sachsenhausen, Bornheim, Nordend, Bockenheim"
+};
+// ============================================================
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue-900: #0B1F4A; --blue-800: #102560; --blue-700: #1A3A8F;
+  --blue-600: #1E4BB8; --blue-500: #2563EB; --blue-400: #3B82F6;
+  --blue-100: #DBEAFE; --blue-50: #EFF6FF;
+  --orange: #F97316; --orange-d: #EA6B0A;
+  --white: #FFFFFF; --gray-50: #F9FAFB; --gray-100: #F3F4F6;
+  --gray-200: #E5E7EB; --gray-400: #9CA3AF; --gray-600: #4B5563; --gray-900: #111827;
+  --font: 'Plus Jakarta Sans', sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); background: var(--white); color: var(--gray-900); overflow-x: hidden; }
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 6%; height: 72px;
+  background: rgba(255,255,255,0.96); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--gray-200);
+}
+.nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav-logo-mark { width: 36px; height: 36px; background: var(--blue-600); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 17px; color: var(--white); font-weight: 800; }
+.nav-logo-text { font-size: 18px; font-weight: 800; color: var(--gray-900); }
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a { font-size: 14px; font-weight: 500; color: var(--gray-600); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--blue-600); }
+.nav-right { display: flex; align-items: center; gap: 12px; }
+.nav-tel { font-size: 14px; font-weight: 700; color: var(--blue-700); text-decoration: none; }
+.nav-cta { background: var(--blue-600); color: var(--white); padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 700; text-decoration: none; transition: background 0.2s; }
+.nav-cta:hover { background: var(--blue-700); }
+
+.hero { min-height: 100vh; display: flex; align-items: center; padding-top: 72px; background: var(--white); position: relative; overflow: hidden; }
+.hero-bg-shape { position: absolute; right: 0; top: 0; bottom: 0; width: 50%; background: linear-gradient(160deg, var(--blue-50) 0%, var(--blue-100) 100%); clip-path: polygon(8% 0%, 100% 0%, 100% 100%, 0% 100%); }
+.hero-dots { position: absolute; right: 5%; top: 15%; width: 300px; height: 300px; opacity: 0.35; background-image: radial-gradient(var(--blue-400) 1.5px, transparent 1.5px); background-size: 28px 28px; }
+.hero-inner { max-width: 1200px; margin: 0 auto; padding: 0 6%; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; width: 100%; position: relative; z-index: 2; }
+.hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--blue-50); border: 1px solid var(--blue-100); color: var(--blue-700); padding: 6px 14px; border-radius: 100px; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 24px; }
+.badge-dot { width: 7px; height: 7px; background: var(--blue-500); border-radius: 50%; animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(1.5)} }
+.hero h1 { font-weight: 800; font-size: clamp(42px, 5.5vw, 68px); line-height: 1.08; color: var(--gray-900); }
+.hero h1 em { font-style: normal; color: var(--blue-600); }
+.hero-sub { margin-top: 20px; font-size: 17px; color: var(--gray-600); line-height: 1.7; max-width: 460px; }
+.hero-actions { display: flex; gap: 12px; margin-top: 36px; flex-wrap: wrap; }
+.btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--blue-600); color: var(--white); padding: 14px 28px; border-radius: 8px; font-size: 15px; font-weight: 700; text-decoration: none; transition: background 0.2s, transform 0.15s; box-shadow: 0 4px 16px rgba(37,99,235,0.3); }
+.btn-primary:hover { background: var(--blue-700); transform: translateY(-2px); }
+.btn-outline { display: inline-flex; align-items: center; gap: 8px; border: 2px solid var(--gray-200); color: var(--gray-700); padding: 14px 28px; border-radius: 8px; font-size: 15px; font-weight: 600; text-decoration: none; transition: border-color 0.2s, color 0.2s; }
+.btn-outline:hover { border-color: var(--blue-400); color: var(--blue-600); }
+.hero-stats { display: flex; gap: 40px; margin-top: 52px; padding-top: 40px; border-top: 1px solid var(--gray-200); }
+.stat-num { font-size: 36px; font-weight: 800; color: var(--blue-700); line-height: 1; }
+.stat-label { font-size: 13px; color: var(--gray-400); margin-top: 4px; font-weight: 500; }
+.hero-visual { position: relative; }
+.hero-card-main { background: var(--white); border-radius: 20px; padding: 32px; box-shadow: 0 24px 64px rgba(11,31,74,0.12), 0 4px 16px rgba(11,31,74,0.06); }
+.card-header { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; }
+.card-icon { width: 52px; height: 52px; background: var(--blue-600); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 24px; }
+.card-title { font-size: 18px; font-weight: 800; color: var(--gray-900); }
+.card-sub { font-size: 13px; color: var(--gray-400); }
+.service-list { display: flex; flex-direction: column; gap: 12px; }
+.service-item { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: var(--gray-50); border-radius: 10px; font-size: 14px; font-weight: 500; }
+.service-item-left { display: flex; align-items: center; gap: 10px; }
+.service-dot { width: 8px; height: 8px; border-radius: 50%; }
+.dot-blue { background: var(--blue-500); } .dot-green { background: #22C55E; } .dot-orange { background: var(--orange); }
+.service-badge { font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 100px; }
+.badge-blue { background: var(--blue-50); color: var(--blue-700); }
+.badge-green { background: #F0FDF4; color: #166534; }
+.badge-orange { background: #FFF7ED; color: #9A3412; }
+.hero-notdienst { margin-top: 16px; background: var(--blue-900); border-radius: 14px; padding: 18px 20px; display: flex; align-items: center; gap: 14px; }
+.notd-dot { width: 10px; height: 10px; background: #22C55E; border-radius: 50%; flex-shrink: 0; animation: pulse 1.5s infinite; }
+.notd-text { font-size: 14px; font-weight: 700; color: var(--white); }
+.notd-sub { font-size: 12px; color: rgba(255,255,255,0.55); }
+.notd-phone { margin-left: auto; font-size: 15px; font-weight: 800; color: var(--white); text-decoration: none; white-space: nowrap; }
+
+.notdienst-stripe { background: var(--blue-900); padding: 20px 6%; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+.nd-left { display: flex; align-items: center; gap: 16px; }
+.nd-live { display: flex; align-items: center; gap: 8px; background: rgba(34,197,94,0.15); border: 1px solid rgba(34,197,94,0.3); border-radius: 100px; padding: 4px 14px; }
+.nd-live-dot { width: 8px; height: 8px; background: #22C55E; border-radius: 50%; animation: pulse 1.5s infinite; }
+.nd-live-text { font-size: 12px; font-weight: 700; color: #4ADE80; }
+.nd-msg { font-size: 16px; font-weight: 700; color: var(--white); }
+.nd-msg span { color: var(--blue-400); }
+.nd-btn { background: var(--orange); color: var(--white); padding: 12px 28px; border-radius: 8px; font-size: 15px; font-weight: 800; text-decoration: none; transition: background 0.2s; }
+.nd-btn:hover { background: var(--orange-d); }
+
+section { padding: 100px 6%; }
+.s-inner { max-width: 1200px; margin: 0 auto; }
+.s-label { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue-600); margin-bottom: 12px; }
+.s-title { font-size: clamp(32px, 4.5vw, 52px); font-weight: 800; line-height: 1.1; color: var(--gray-900); }
+.s-title span { color: var(--blue-600); }
+.s-sub { font-size: 16px; color: var(--gray-600); margin-top: 14px; max-width: 520px; line-height: 1.7; }
+
+.leistungen { background: var(--gray-50); }
+.leistungen-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 56px; }
+.l-card { background: var(--white); border-radius: 16px; padding: 32px; border: 1px solid var(--gray-200); transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s; }
+.l-card:hover { border-color: var(--blue-400); box-shadow: 0 12px 40px rgba(37,99,235,0.1); transform: translateY(-4px); }
+.l-icon { width: 56px; height: 56px; background: var(--blue-50); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 26px; margin-bottom: 20px; }
+.l-title { font-size: 18px; font-weight: 800; color: var(--gray-900); margin-bottom: 10px; }
+.l-text { font-size: 14px; color: var(--gray-600); line-height: 1.7; }
+.l-list { margin-top: 16px; list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.l-list li { font-size: 13px; color: var(--gray-500); display: flex; align-items: center; gap: 8px; }
+.l-list li::before { content: ''; width: 5px; height: 5px; background: var(--blue-500); border-radius: 50%; flex-shrink: 0; }
+
+.notdienst-section { background: var(--white); }
+.nd-box { background: var(--blue-900); border-radius: 24px; padding: 72px 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; margin-top: 56px; position: relative; overflow: hidden; }
+.nd-box::before { content: ''; position: absolute; right: -80px; top: -80px; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 70%); }
+.nd-box::after { content: '24H'; position: absolute; right: 48px; bottom: -20px; font-size: 180px; font-weight: 800; color: rgba(255,255,255,0.03); line-height: 1; pointer-events: none; }
+.nd-label { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue-400); margin-bottom: 12px; }
+.nd-title { font-size: 42px; font-weight: 800; color: var(--white); line-height: 1.1; }
+.nd-desc { font-size: 16px; color: rgba(255,255,255,0.6); margin-top: 16px; line-height: 1.7; }
+.nd-features { display: flex; flex-direction: column; gap: 16px; margin-top: 32px; }
+.nd-feat { display: flex; align-items: center; gap: 14px; }
+.nd-feat-check { width: 36px; height: 36px; background: rgba(34,197,94,0.15); border: 1px solid rgba(34,197,94,0.3); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 16px; }
+.nd-feat-text { font-size: 15px; color: rgba(255,255,255,0.85); font-weight: 500; }
+.nd-clock-wrap { display: flex; flex-direction: column; align-items: center; gap: 28px; position: relative; z-index: 1; }
+.nd-clock { width: 180px; height: 180px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.1); display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(255,255,255,0.04); }
+.nd-clock-time { font-size: 44px; font-weight: 800; color: var(--white); line-height: 1; }
+.nd-clock-lbl { font-size: 10px; color: rgba(255,255,255,0.4); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 4px; }
+.nd-phone-btn { display: block; background: var(--orange); color: var(--white); padding: 18px 40px; border-radius: 12px; text-decoration: none; font-size: 24px; font-weight: 800; text-align: center; transition: background 0.2s; box-shadow: 0 8px 32px rgba(249,115,22,0.4); }
+.nd-phone-btn:hover { background: var(--orange-d); }
+.nd-sub { font-size: 13px; color: rgba(255,255,255,0.4); text-align: center; }
+
+.warum { background: var(--blue-50); }
+.warum-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 56px; }
+.w-card { background: var(--white); border-radius: 16px; padding: 32px; border: 1px solid var(--blue-100); }
+.w-icon { font-size: 32px; margin-bottom: 16px; }
+.w-num { font-size: 13px; font-weight: 800; color: var(--blue-400); letter-spacing: 0.08em; margin-bottom: 12px; }
+.w-title { font-size: 20px; font-weight: 800; color: var(--gray-900); margin-bottom: 10px; }
+.w-text { font-size: 14px; color: var(--gray-600); line-height: 1.7; }
+
+.preise { background: var(--white); }
+.preise-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 56px; }
+.p-card { border-radius: 16px; padding: 36px 32px; border: 2px solid var(--gray-200); position: relative; transition: border-color 0.2s; }
+.p-card:hover:not(.p-featured) { border-color: var(--blue-300); }
+.p-featured { border-color: var(--blue-600); background: var(--blue-900); color: var(--white); }
+.p-popular { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--blue-600); color: var(--white); padding: 4px 20px; border-radius: 100px; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap; }
+.p-name { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray-400); margin-bottom: 8px; }
+.p-featured .p-name { color: var(--blue-300); }
+.p-price { font-size: 52px; font-weight: 800; line-height: 1; color: var(--gray-900); }
+.p-featured .p-price { color: var(--white); }
+.p-price sup { font-size: 22px; vertical-align: top; margin-top: 10px; font-weight: 600; }
+.p-price sub { font-size: 16px; font-weight: 500; }
+.p-desc { font-size: 13px; color: var(--gray-400); margin: 8px 0 28px; }
+.p-featured .p-desc { color: rgba(255,255,255,0.5); }
+.p-feats { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+.p-feats li { font-size: 14px; color: var(--gray-600); display: flex; align-items: center; gap: 10px; }
+.p-featured .p-feats li { color: rgba(255,255,255,0.8); }
+.p-check { width: 20px; height: 20px; background: var(--blue-50); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 11px; color: var(--blue-600); }
+.p-featured .p-check { background: rgba(255,255,255,0.1); color: var(--white); }
+.p-feats li.off { opacity: 0.35; }
+.p-btn { display: block; text-align: center; padding: 14px; border-radius: 10px; font-size: 14px; font-weight: 700; text-decoration: none; transition: all 0.2s; }
+.p-btn-outline { border: 2px solid var(--gray-200); color: var(--gray-700); }
+.p-btn-outline:hover { border-color: var(--blue-500); color: var(--blue-600); }
+.p-btn-solid { background: var(--blue-600); color: var(--white); box-shadow: 0 4px 16px rgba(37,99,235,0.35); }
+.p-btn-solid:hover { background: var(--blue-500); }
+
+.bewertungen { background: var(--gray-50); }
+.bew-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 56px; }
+.bew-card { background: var(--white); border-radius: 16px; padding: 28px; border: 1px solid var(--gray-200); }
+.bew-stars { color: #FBBF24; font-size: 16px; letter-spacing: 2px; margin-bottom: 16px; }
+.bew-text { font-size: 15px; color: var(--gray-700); line-height: 1.7; }
+.bew-author { margin-top: 24px; display: flex; align-items: center; gap: 12px; }
+.bew-avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--blue-100); display: flex; align-items: center; justify-content: center; font-weight: 800; color: var(--blue-700); font-size: 15px; }
+.bew-name { font-size: 14px; font-weight: 700; color: var(--gray-900); }
+.bew-loc { font-size: 12px; color: var(--gray-400); }
+
+.kontakt { background: var(--white); }
+.kontakt-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 64px; margin-top: 56px; }
+.k-info { display: flex; flex-direction: column; gap: 0; }
+.k-card { padding: 24px 0; border-bottom: 1px solid var(--gray-100); display: flex; align-items: flex-start; gap: 18px; }
+.k-card:first-child { padding-top: 0; }
+.k-icon { width: 48px; height: 48px; background: var(--blue-50); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+.k-label { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gray-400); margin-bottom: 4px; }
+.k-val { font-size: 18px; font-weight: 700; color: var(--gray-900); }
+.k-sub { font-size: 13px; color: var(--gray-400); margin-top: 2px; }
+.k-highlight { background: var(--blue-900); border-radius: 14px; padding: 20px; margin-top: 28px; display: flex; align-items: center; gap: 16px; }
+.k-hl-icon { font-size: 28px; }
+.k-hl-title { font-size: 15px; font-weight: 800; color: var(--white); }
+.k-hl-sub { font-size: 13px; color: rgba(255,255,255,0.5); }
+.k-hl-btn { margin-left: auto; background: var(--orange); color: var(--white); padding: 10px 18px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 800; white-space: nowrap; }
+.k-form { background: var(--gray-50); border-radius: 20px; padding: 40px; border: 1px solid var(--gray-200); }
+.f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.f-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+.f-group label { font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--gray-500); }
+.f-group input, .f-group textarea, .f-group select { background: var(--white); border: 1.5px solid var(--gray-200); border-radius: 8px; color: var(--gray-900); padding: 12px 14px; font-family: var(--font); font-size: 15px; outline: none; transition: border-color 0.2s; width: 100%; }
+.f-group input:focus, .f-group textarea:focus, .f-group select:focus { border-color: var(--blue-500); box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
+.f-group textarea { resize: vertical; min-height: 120px; }
+.f-btn { width: 100%; background: var(--blue-600); color: var(--white); padding: 15px; border: none; border-radius: 10px; cursor: pointer; font-family: var(--font); font-size: 15px; font-weight: 700; transition: background 0.2s; box-shadow: 0 4px 16px rgba(37,99,235,0.3); }
+.f-btn:hover { background: var(--blue-700); }
+
+footer { background: var(--blue-900); color: var(--white); padding: 64px 6% 32px; }
+.footer-inner { max-width: 1200px; margin: 0 auto; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+.footer-about { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.7; margin-top: 16px; max-width: 260px; }
+.footer-col-title { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue-400); margin-bottom: 16px; }
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-links a { font-size: 14px; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--white); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.3); }
+.footer-bottom a { color: rgba(255,255,255,0.5); text-decoration: none; }
+.innovi-tag { font-size: 12px; color: rgba(255,255,255,0.25); }
+.innovi-tag span { color: var(--blue-400); }
+
+.demo-bar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 200; background: var(--white); border-top: 3px solid var(--blue-600); box-shadow: 0 -8px 32px rgba(0,0,0,0.12); padding: 14px 6%; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.demo-bar-text { font-size: 15px; font-weight: 700; color: var(--gray-900); }
+.demo-bar-text span { color: var(--blue-600); }
+.demo-bar-sub { font-size: 12px; color: var(--gray-400); margin-top: 2px; }
+.demo-bar-actions { display: flex; gap: 10px; align-items: center; }
+.demo-bar-btn { background: var(--blue-600); color: var(--white); padding: 10px 22px; border-radius: 8px; font-size: 14px; font-weight: 700; border: none; cursor: pointer; }
+.demo-bar-close { background: none; border: none; color: var(--gray-400); cursor: pointer; font-size: 20px; padding: 4px; }
+
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-visual { display: none; }
+  .leistungen-grid { grid-template-columns: 1fr 1fr; }
+  .nd-box { grid-template-columns: 1fr; padding: 40px; }
+  .nd-box::after { display: none; }
+  .warum-grid { grid-template-columns: 1fr; }
+  .preise-grid { grid-template-columns: 1fr; }
+  .bew-grid { grid-template-columns: 1fr; }
+  .kontakt-grid { grid-template-columns: 1fr; }
+  .f-row { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-mark">⚡</div>
+    <div class="nav-logo-text" id="nav-name"></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#leistungen">Leistungen</a></li>
+    <li><a href="#notdienst">Notdienst</a></li>
+    <li><a href="#preise">Preise</a></li>
+    <li><a href="#bewertungen">Referenzen</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="#" class="nav-tel" id="nav-tel"></a>
+    <a href="#kontakt" class="nav-cta">Kostenlos anfragen</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg-shape"></div>
+  <div class="hero-dots"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge"><div class="badge-dot"></div> <span id="hero-badge-text"></span></div>
+      <h1>Ihr <em>Elektriker</em><br>in Frankfurt —<br>schnell & seriös.</h1>
+      <p class="hero-sub">Professionelle Elektroinstallation, 24h Notdienst und faire Festpreise. Für Privat und Gewerbe.</p>
+      <div class="hero-actions">
+        <a href="#kontakt" class="btn-primary">⚡ Kostenlos anfragen</a>
+        <a href="#leistungen" class="btn-outline">Leistungen ansehen →</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="stat-num" id="stat-jahre"></div><div class="stat-label">Jahre Erfahrung</div></div>
+        <div><div class="stat-num">1.400+</div><div class="stat-label">Aufträge</div></div>
+        <div><div class="stat-num">4,9 ★</div><div class="stat-label">Google</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card-main">
+        <div class="card-header">
+          <div class="card-icon">⚡</div>
+          <div>
+            <div class="card-title" id="card-firma"></div>
+            <div class="card-sub">Meisterbetrieb · Alle Leistungen</div>
+          </div>
+        </div>
+        <div class="service-list">
+          <div class="service-item"><div class="service-item-left"><div class="service-dot dot-blue"></div> Elektroinstallation</div><span class="service-badge badge-blue">Verfügbar</span></div>
+          <div class="service-item"><div class="service-item-left"><div class="service-dot dot-green"></div> Wallbox / E-Mobilität</div><span class="service-badge badge-green">Beliebt</span></div>
+          <div class="service-item"><div class="service-item-left"><div class="service-dot dot-orange"></div> 24h Notdienst</div><span class="service-badge badge-orange">24/7 aktiv</span></div>
+        </div>
+      </div>
+      <div class="hero-notdienst">
+        <div class="notd-dot"></div>
+        <div><div class="notd-text">Notdienst jetzt aktiv</div><div class="notd-sub">Reaktionszeit unter 60 Minuten</div></div>
+        <a href="#" class="notd-phone" id="notd-phone"></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="notdienst-stripe">
+  <div class="nd-left">
+    <div class="nd-live"><div class="nd-live-dot"></div><span class="nd-live-text">LIVE — Notdienst aktiv</span></div>
+    <div class="nd-msg">Stromausfall, Kurzschluss, defekte Sicherung? <span>Wir sind in 60 Min. bei Ihnen.</span></div>
+  </div>
+  <a href="#" class="nd-btn" id="stripe-tel"></a>
+</div>
+
+<section id="leistungen" class="leistungen">
+  <div class="s-inner">
+    <div class="s-label">Was wir anbieten</div>
+    <h2 class="s-title">Unsere <span>Leistungen</span></h2>
+    <p class="s-sub">Vom Einfamilienhaus bis zum Gewerbeobjekt — wir erledigen alle elektrischen Arbeiten fachgerecht.</p>
+    <div class="leistungen-grid">
+      <div class="l-card"><div class="l-icon">🏠</div><div class="l-title">Elektroinstallation</div><div class="l-text">Neuinstallation und Modernisierung Ihrer Elektrik — normgerecht und mit Gewährleistung.</div><ul class="l-list"><li>Leitungsverlegung & Unterputz</li><li>Steckdosen & Schalter</li><li>Zählerschrank & Unterverteilung</li><li>Smart-Home Vorbereitung</li></ul></div>
+      <div class="l-card"><div class="l-icon">💡</div><div class="l-title">Beleuchtung & LED</div><div class="l-text">Von der einfachen Lampe bis zum professionellen Beleuchtungskonzept — inkl. Lichtplanung.</div><ul class="l-list"><li>LED-Umrüstung & Einbauspots</li><li>Außenbeleuchtung & Strahler</li><li>Dimmersysteme</li><li>Gewerbliche Beleuchtung</li></ul></div>
+      <div class="l-card"><div class="l-icon">🔌</div><div class="l-title">Sicherungstechnik</div><div class="l-text">Moderne Absicherung Ihrer Anlage nach aktuellen Normen — für maximale Sicherheit.</div><ul class="l-list"><li>FI-Schutzschalter & RCD</li><li>Überspannungsschutz</li><li>E-Check & DGUV-Prüfung</li><li>Blitzschutz</li></ul></div>
+      <div class="l-card"><div class="l-icon">🚗</div><div class="l-title">E-Mobilität & Wallbox</div><div class="l-text">Wallbox-Installation inkl. Netzanmeldung und Förderantrag.</div><ul class="l-list"><li>Alle Wallbox-Hersteller</li><li>Netzanmeldung & Förderung</li><li>Ladeinfrastruktur Gewerbe</li><li>Beratung & Planung</li></ul></div>
+      <div class="l-card"><div class="l-icon">🏗️</div><div class="l-title">Gewerbe & Industrie</div><div class="l-text">Gewerbliche Elektroinstallation für Büros, Restaurants und Industrieanlagen.</div><ul class="l-list"><li>Maschinenanbindung & 400V</li><li>Büro & Serverräume</li><li>Gastronomietechnik</li><li>Prüf- & Wartungsverträge</li></ul></div>
+      <div class="l-card"><div class="l-icon">📡</div><div class="l-title">Netzwerk & Daten</div><div class="l-text">Strukturierte Verkabelung, WLAN und TV-Anschlüsse — alles aus einer Hand.</div><ul class="l-list"><li>Netzwerkkabel Cat.6/7</li><li>WLAN-Access-Points</li><li>SAT, Kabel & Antenne</li><li>Videogegensprechanlagen</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="notdienst" class="notdienst-section">
+  <div class="s-inner">
+    <div class="s-label">Immer für Sie da</div>
+    <h2 class="s-title">24h <span>Notdienst</span></h2>
+    <p class="s-sub">Elektrische Probleme warten nicht. Deshalb auch wir nicht.</p>
+    <div class="nd-box">
+      <div>
+        <div class="nd-label">Sofort erreichbar</div>
+        <div class="nd-title">Stromausfall?<br>Wir kommen<br>sofort.</div>
+        <div class="nd-desc" id="nd-desc"></div>
+        <div class="nd-features">
+          <div class="nd-feat"><div class="nd-feat-check">✓</div><div class="nd-feat-text">Reaktionszeit unter 60 Minuten in Frankfurt</div></div>
+          <div class="nd-feat"><div class="nd-feat-check">✓</div><div class="nd-feat-text">Zertifizierte Elektrofachkräfte nach VDE</div></div>
+          <div class="nd-feat"><div class="nd-feat-check">✓</div><div class="nd-feat-text">Transparente Notdienstpauschale vorab</div></div>
+          <div class="nd-feat"><div class="nd-feat-check">✓</div><div class="nd-feat-text" id="nd-stadtteile"></div></div>
+        </div>
+      </div>
+      <div class="nd-clock-wrap">
+        <div class="nd-clock"><div class="nd-clock-time" id="clock">00:00</div><div class="nd-clock-lbl">Jetzt erreichbar</div></div>
+        <a href="#" class="nd-phone-btn" id="nd-phone-btn"></a>
+        <div class="nd-sub">24 Stunden · 7 Tage · 365 Tage im Jahr</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="warum">
+  <div class="s-inner">
+    <div class="s-label">Warum uns wählen</div>
+    <h2 class="s-title">Vertrauen durch <span>Qualität</span></h2>
+    <p class="s-sub" id="warum-sub"></p>
+    <div class="warum-grid">
+      <div class="w-card"><div class="w-icon">🏅</div><div class="w-num">01 —</div><div class="w-title">Eingetragener Meisterbetrieb</div><div class="w-text">Alle Arbeiten werden normgerecht nach VDE und TAB ausgeführt. Eingetragen bei der Handwerkskammer Frankfurt-Rhein-Main.</div></div>
+      <div class="w-card"><div class="w-icon">💰</div><div class="w-num">02 —</div><div class="w-title">Festpreise & kein Kleingedrucktes</div><div class="w-text">Wir erstellen immer einen schriftlichen Kostenvoranschlag. Sie entscheiden — keine Überraschungen auf der Rechnung.</div></div>
+      <div class="w-card"><div class="w-icon">🧹</div><div class="w-num">03 —</div><div class="w-title">Pünktlich & sauber</div><div class="w-text">Wir respektieren Ihr Zuhause. Pünktlich erscheinen, ordentlich arbeiten, sauber hinterlassen — das ist unser Standard.</div></div>
+      <div class="w-card"><div class="w-icon">🛡️</div><div class="w-num">04 —</div><div class="w-title">5 Jahre Gewährleistung</div><div class="w-text">Auf alle unsere Installationsarbeiten gewähren wir 5 Jahre Gewährleistung. Sollte etwas nicht passen — wir kommen kostenlos.</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="preise" class="preise">
+  <div class="s-inner">
+    <div class="s-label">Transparente Kosten</div>
+    <h2 class="s-title">Faire <span>Preise</span></h2>
+    <p class="s-sub">Klare Pakete für Standardleistungen — oder individuelles Angebot auf Anfrage.</p>
+    <div class="preise-grid">
+      <div class="p-card">
+        <div class="p-name">Basic</div><div class="p-price"><sup>€</sup>69<sub>/Std.</sub></div>
+        <div class="p-desc">Für kleinere Einzelarbeiten</div>
+        <ul class="p-feats"><li><div class="p-check">✓</div> Steckdosen & Schalter tauschen</li><li><div class="p-check">✓</div> Lampen anschließen</li><li><div class="p-check">✓</div> Sicherung prüfen & tauschen</li><li><div class="p-check">✓</div> Fehlersuche & Diagnose</li><li class="off"><div class="p-check">–</div> Notdienst inklusive</li><li class="off"><div class="p-check">–</div> 5 Jahre Gewährleistung</li></ul>
+        <a href="#kontakt" class="p-btn p-btn-outline">Anfragen →</a>
+      </div>
+      <div class="p-card p-featured">
+        <div class="p-popular">Beliebtestes Paket</div>
+        <div class="p-name">Professional</div><div class="p-price">Fixpreis</div>
+        <div class="p-desc">Für komplette Projekte — Preis vorab</div>
+        <ul class="p-feats"><li><div class="p-check">✓</div> Komplette Elektroplanung</li><li><div class="p-check">✓</div> Installation & Verkabelung</li><li><div class="p-check">✓</div> Schriftlicher KVA vorab</li><li><div class="p-check">✓</div> 5 Jahre Gewährleistung</li><li><div class="p-check">✓</div> 3 Monate Notdienst inklusive</li><li><div class="p-check">✓</div> Abnahme & Übergabe-Protokoll</li></ul>
+        <a href="#kontakt" class="p-btn p-btn-solid">Angebot anfragen →</a>
+      </div>
+      <div class="p-card">
+        <div class="p-name">Wartungsvertrag</div><div class="p-price"><sup>€</sup>49<sub>/Mon.</sub></div>
+        <div class="p-desc">Für Gewerbe & Vermieter</div>
+        <ul class="p-feats"><li><div class="p-check">✓</div> Jährliche DGUV-Prüfung</li><li><div class="p-check">✓</div> Priority Notdienst</li><li><div class="p-check">✓</div> 10% Rabatt auf alle Arbeiten</li><li><div class="p-check">✓</div> Prüfprotokoll & Dokumentation</li><li><div class="p-check">✓</div> Direkter Ansprechpartner</li><li><div class="p-check">✓</div> 5 Jahre Gewährleistung</li></ul>
+        <a href="#kontakt" class="p-btn p-btn-outline">Anfragen →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="bewertungen" class="bewertungen">
+  <div class="s-inner">
+    <div class="s-label">Was Kunden sagen</div>
+    <h2 class="s-title">4,9 Sterne auf <span>Google</span></h2>
+    <p class="s-sub">Über 180 verifizierte Bewertungen von echten Kunden aus Frankfurt.</p>
+    <div class="bew-grid">
+      <div class="bew-card"><div class="bew-stars">★★★★★</div><div class="bew-text">Stromausfall am Sonntagabend — innerhalb von 45 Minuten war das Team da und hat alles repariert. Absolute Empfehlung!</div><div class="bew-author"><div class="bew-avatar">TM</div><div><div class="bew-name">Thomas M.</div><div class="bew-loc">Frankfurt-Bornheim</div></div></div></div>
+      <div class="bew-card"><div class="bew-stars">★★★★★</div><div class="bew-text">Wallbox installieren lassen. Sauberste Arbeit, pünktlich und fairer Preis. Sogar beim Förderantrag geholfen!</div><div class="bew-author"><div class="bew-avatar">SK</div><div><div class="bew-name">Sandra K.</div><div class="bew-loc">Frankfurt-Sachsenhausen</div></div></div></div>
+      <div class="bew-card"><div class="bew-stars">★★★★★</div><div class="bew-text">Komplette Elektroinstallation nach Büroumbau. Zuverlässig, kompetent, immer erreichbar. Bester Elektriker!</div><div class="bew-author"><div class="bew-avatar">AB</div><div><div class="bew-name">A. Bergmann</div><div class="bew-loc">Frankfurt-Nordend</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="kontakt" class="kontakt">
+  <div class="s-inner">
+    <div class="s-label">Einfach melden</div>
+    <h2 class="s-title">Kostenlos <span>anfragen</span></h2>
+    <p class="s-sub">Schildern Sie Ihr Anliegen — wir melden uns innerhalb von 2 Stunden.</p>
+    <div class="kontakt-grid">
+      <div class="k-info">
+        <div class="k-card"><div class="k-icon">📞</div><div><div class="k-label">Telefon</div><div class="k-val" id="k-tel"></div><div class="k-sub">Mo–Fr 7:00–18:00 Uhr</div></div></div>
+        <div class="k-card"><div class="k-icon">✉️</div><div><div class="k-label">E-Mail</div><div class="k-val" id="k-email"></div><div class="k-sub">Antwort innerhalb 2 Stunden</div></div></div>
+        <div class="k-card"><div class="k-icon">📍</div><div><div class="k-label">Adresse</div><div class="k-val" id="k-adresse"></div></div></div>
+        <div class="k-highlight">
+          <div class="k-hl-icon">🚨</div>
+          <div><div class="k-hl-title">24h Notdienst</div><div class="k-hl-sub">Sofort erreichbar — 365 Tage</div></div>
+          <a href="#" class="k-hl-btn" id="k-hl-btn">📞 Anrufen</a>
+        </div>
+      </div>
+      <div class="k-form">
+        <div class="f-row">
+          <div class="f-group"><label>Vorname *</label><input type="text" placeholder="Max"></div>
+          <div class="f-group"><label>Nachname *</label><input type="text" placeholder="Mustermann"></div>
+        </div>
+        <div class="f-group"><label>Telefon *</label><input type="tel" placeholder="069 ..."></div>
+        <div class="f-group"><label>E-Mail</label><input type="email" placeholder="max@beispiel.de"></div>
+        <div class="f-group"><label>Leistung</label>
+          <select><option>Bitte wählen...</option><option>Elektroinstallation</option><option>24h Notdienst</option><option>Wallbox / E-Mobilität</option><option>Beleuchtung & LED</option><option>Gewerbe / Industrie</option><option>Wartungsvertrag</option><option>Sonstiges</option></select>
+        </div>
+        <div class="f-group"><label>Nachricht</label><textarea placeholder="Kurze Beschreibung Ihres Anliegens..."></textarea></div>
+        <button class="f-btn" onclick="alert('Demo von InnoviWeb — im Live-Betrieb wird Ihre Anfrage direkt gesendet!')">⚡ Kostenlos anfragen</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:34px;height:34px;background:var(--blue-600);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;">⚡</div>
+          <div style="font-size:18px;font-weight:800;color:var(--white)" id="footer-name"></div>
+        </div>
+        <p class="footer-about" id="footer-about"></p>
+      </div>
+      <div><div class="footer-col-title">Leistungen</div><ul class="footer-links"><li><a href="#">Elektroinstallation</a></li><li><a href="#">Beleuchtung & LED</a></li><li><a href="#">Wallbox / E-Auto</a></li><li><a href="#">24h Notdienst</a></li></ul></div>
+      <div><div class="footer-col-title">Unternehmen</div><ul class="footer-links"><li><a href="#">Über uns</a></li><li><a href="#">Referenzen</a></li><li><a href="#">Karriere</a></li><li><a href="#">Kontakt</a></li></ul></div>
+      <div><div class="footer-col-title">Kontakt</div><ul class="footer-links"><li><a href="#" id="footer-tel"></a></li><li><a href="#" id="footer-email"></a></li><li><a href="#" id="footer-adresse"></a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 <span id="footer-firma"></span> · <a href="#">Impressum</a> · <a href="#">Datenschutz</a></p>
+      <div class="innovi-tag">Website by <span>InnoviWeb</span> Frankfurt</div>
+    </div>
+  </div>
+</footer>
+
+<div class="demo-bar" id="demo-bar">
+  <div>
+    <div class="demo-bar-text">Diese Seite ist eine <span>kostenlose Demo</span> von InnoviWeb</div>
+    <div class="demo-bar-sub">Ihre echte Website — fertig in 7 Tagen · ab 399 € · inkl. Hosting & Wartung</div>
+  </div>
+  <div class="demo-bar-actions">
+    <button class="demo-bar-btn" onclick="alert('Interesse? Kontaktieren Sie InnoviWeb Frankfurt!\nE-Mail: info@innoviweb.de')">Jetzt Website bekommen</button>
+    <button class="demo-bar-close" onclick="document.getElementById('demo-bar').style.display='none'">✕</button>
+  </div>
+</div>
+
+<script>
+// Alles wird automatisch aus der FIRMA-Config oben befüllt
+document.addEventListener('DOMContentLoaded', function() {
+  const jahre = new Date().getFullYear() - parseInt(FIRMA.seit);
+
+  // Titel
+  document.title = FIRMA.name + ' – Ihr Elektriker Frankfurt';
+
+  // Nav
+  document.getElementById('nav-name').innerHTML = FIRMA.name;
+  document.getElementById('nav-tel').textContent = FIRMA.tel;
+  document.getElementById('nav-tel').href = 'tel:' + FIRMA.tel.replace(/\s/g,'');
+
+  // Hero
+  document.getElementById('hero-badge-text').textContent = 'Meisterbetrieb seit ' + FIRMA.seit + ' · Frankfurt am Main';
+  document.getElementById('card-firma').textContent = FIRMA.name;
+  document.getElementById('stat-jahre').textContent = jahre + '+';
+  document.getElementById('notd-phone').textContent = '📞 ' + FIRMA.tel;
+  document.getElementById('notd-phone').href = 'tel:' + FIRMA.tel.replace(/\s/g,'');
+
+  // Stripe
+  document.getElementById('stripe-tel').textContent = '📞 ' + FIRMA.tel;
+  document.getElementById('stripe-tel').href = 'tel:' + FIRMA.tel.replace(/\s/g,'');
+
+  // Notdienst
+  document.getElementById('nd-desc').textContent = 'Innerhalb von 60 Minuten sind wir bei Ihnen in Frankfurt — rund um die Uhr, auch an Sonn- und Feiertagen.';
+  document.getElementById('nd-stadtteile').textContent = 'Stadtteile: ' + FIRMA.stadtteile;
+  document.getElementById('nd-phone-btn').textContent = '📞 ' + FIRMA.tel;
+  document.getElementById('nd-phone-btn').href = 'tel:' + FIRMA.tel.replace(/\s/g,'');
+
+  // Warum
+  document.getElementById('warum-sub').textContent = 'Seit ' + FIRMA.seit + ' der Elektriker des Vertrauens in Frankfurt — für Privat und Gewerbe.';
+
+  // Kontakt
+  document.getElementById('k-tel').textContent = FIRMA.tel;
+  document.getElementById('k-email').textContent = FIRMA.email;
+  document.getElementById('k-adresse').innerHTML = FIRMA.adresse.replace(',', '<br>');
+  document.getElementById('k-hl-btn').href = 'tel:' + FIRMA.tel.replace(/\s/g,'');
+
+  // Footer
+  document.getElementById('footer-name').textContent = FIRMA.name;
+  document.getElementById('footer-about').textContent = 'Ihr Elektriker-Meisterbetrieb in Frankfurt am Main seit ' + FIRMA.seit + '. Zuverlässig, fair, immer erreichbar.';
+  document.getElementById('footer-tel').textContent = FIRMA.tel;
+  document.getElementById('footer-email').textContent = FIRMA.email;
+  document.getElementById('footer-adresse').textContent = FIRMA.adresse.split(',')[0];
+  document.getElementById('footer-firma').textContent = FIRMA.name;
+});
+
+// Uhr
+function tick() {
+  const n = new Date();
+  document.getElementById('clock').textContent =
+    String(n.getHours()).padStart(2,'0') + ':' + String(n.getMinutes()).padStart(2,'0');
+}
+tick(); setInterval(tick, 1000);
+</script>
+</body>
+</html>
